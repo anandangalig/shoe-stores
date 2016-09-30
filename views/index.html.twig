@@ -14,12 +14,12 @@
                         <label for="new_store_name">Add New Store:</label>
                         <input name="new_store_name" class="form-control" placeholder="Enter Store Name" required><br>
                         <button class="btn btn-success" type="submit">Create</button>
-                    </form>
+                    </form><hr>
                     <h2>Local Stores:</h2>
                     {% if stores is not empty %}
                         {% for store in stores %}
                             <li><a href="/store/{{store.getId}}">{{store.getName}}</a></li>
-                        {% endfor %}
+                        {% endfor %}<br>
                         <form action="/delete_all_stores" method="post">
                             <button type="submit" class="btn btn-danger">Delete All</button>
                         </form>
@@ -32,12 +32,12 @@
                         <label for="new_brand_name">Add New Brand:</label>
                         <input name="new_brand_name" class="form-control" placeholder="Enter Brand Name" required><br>
                         <button class="btn btn-success" type="submit">Create</button>
-                    </form>
+                    </form><hr>
                     <h2>Available Brands:</h2>
                     {% if brands is not empty %}
                         {% for brand in brands %}
                             <li><a href="/brand/{{brand.getId}}">{{brand.getName}}</a></li>
-                        {% endfor %}
+                        {% endfor %}<br>
                         <form action="/delete_all_brands" method="post">
                             <button type="submit" class="btn btn-danger">Delete All</button>
                         </form>

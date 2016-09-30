@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <title>Shoes: Stores and Brands</title>
+    </head>
+    <body>
+        <div class="container">
+            <a href="/" type="button" class="btn btn-warning">Go Back to Main Page</a>
+            <h1>Brand Details: {{brand.getName}}</h1><br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <form action="/add_store/{{brand.getId}}" method="post">
+                        <label for="add_store_name">Add New Store:</label>
+                        <select name="add_store_name" class="form-control">
+                            {% for store in all_stores %}
+                            <option value="{{store.getId}}">{{store.getName}}</option>
+                            {% endfor %}
+                        </select><br>
+                        <button class="btn btn-success" type="submit">Add</button>
+                    </form>
+                    <h2>Stores currently selling <em>{{brand.getName}}</em>:</h2>
+                    {% if carried_stores is not empty %}
+                        {% for store in carried_stores %}
+                            <li>{{store.getName}}</li>
+                        {% endfor %}
+                    {% else %}
+                        <h4>This brand is not being sold anywhere!</h4>
+                    {% endif %}
+                </div>
+                <div class="col-sm-6">
+                    <form action="/update_brand/{{brand.getId}}" method="post">
+                        <label for="new_brand_name">Update Brand Name:</label>
+                        <input name="new_brand_name" class="form-control" placeholder="Enter New Name" required><br>
+                        <button class="btn btn-info" type="submit">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
