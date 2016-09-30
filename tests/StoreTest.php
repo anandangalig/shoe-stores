@@ -153,8 +153,52 @@
             $this->assertEquals([$test_brand, $test_brand2], $result);
         }
 
+        function testDelete()
+        {
+            //ARRANGE
+            $id = null;
+            $name = "Foot Locker";
+            $test_store = new Store($id, $name);
+            $test_store->save();
+
+            $name2 = "CHAMPS";
+            $test_store2 = new Store($id, $name2);
+            $test_store2->save();
 
 
+            //ACT
+            $test_store->delete();
+
+            //ASSERT
+            $this->assertEquals([$test_store2], Store::getAll());
+        }
+
+        function testDeleteBrand()
+        {
+            //ARRANGE
+            $id = null;
+            $name = "Finish Line";
+            $test_store = new Store($id, $name);
+            $test_store->save();
+
+            $brand_name = "Nike";
+            $test_brand = new Brand($id, $brand_name);
+            $test_brand->save();
+            $test_store->addBrand($test_brand);
+
+            $brand_name2 = "Reebok";
+            $test_brand2 = new Brand($id, $brand_name2);
+            $test_brand2->save();
+            $test_store->addBrand($test_brand2);
+
+
+            //ACT
+            $test_store->deleteBrand($test_brand->getId());
+
+            //ASSERT
+            $this->assertEquals([$test_brand2], $test_store->getBrands());
+
+        }
 
 
 
