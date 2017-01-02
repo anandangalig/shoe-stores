@@ -27,7 +27,9 @@ _Users are able to Create, Read, Update, and Delete brands, stores, and the rela
     * _To start the MySQL, go to the terminal and execute:_
         _/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot_
 
-    * _Navigate to the web directory and start your local host by executing the following command in your terminal:_
+    * _Start the MAMP at the highest level of the cloned directory, create a new Database named **shoes**, then import the shoes.sql.zip file_
+
+    * _Start a new tab on the Terminal and navigate to the web directory and start your local host by executing the following command in your terminal:_
           _php -S localhost:8000_
 
     * _Open up the browser of your choice and go to the following url:_
@@ -65,7 +67,7 @@ _Users are able to Create, Read, Update, and Delete brands, stores, and the rela
 
 ## Known Bugs
 
-_None_
+_None for now, but please contact me if you find one_
 
 
 ## Support and Contact Details
